@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="index.css" />
+        <title>Atividade - Mensagem Oculta</title>
+    </head>
+    <body>
+        <form name="formulario">
+            <div class="principal">
+                <h1>Aqui você pode codificar e decoficar suas mensagens!</h1>
+                <label for="digitaTexto">Digite aqui o texto que deseja codificar:</label>
+
+                <br />
+                <textarea id="caixaTexto" placeholder="coloque o texto que deseja aqui" type="text" required="required" onekeyup="send()"></textarea>
+                <br />
+
+                <label for="qualPadrao">Em qual padrão deseja codificar? Selecione Abaixo</label>
+                <br />
+
+                <select name="select" id="selecionar">
+                    <option value="valor0" id="valor0" disabled selected>Selecione Aqui!</option>
+                    <option value="caesar" id="caesar">Cifra de Caesar</option>
+                    <option value="base64" id="base64">Base 64</option>
+                </select>
+                <br />
+
+                <!-- Quando o style display está em "none" não aparece no html -->
+                <div style="display: none;" id="incremento">
+                    <p>Incremento (escolha o número da chave)</p>
+
+                    <input type="number" default="0" min="1" value="1" />
+                </div>
+
+                <br />
+                <br />
+
+                <input type="radio" name="botoes" id="codificar" value="codificar" checked="checked" />
+                <label for="codificar">CODIFICAR</label>
+                <br />
+                <input type="radio" name="botoes" id="decodificar" value="decodificar" />
+                <label for="decodificar">DECODIFICAR</label>
+                <br />
+
+                <button type="submit">Codifica mensagem</button>
+                <br />
+
+                <label for="textoModificado">Veja a sua mensagem logo abaixo:</label>
+                <br />
+                <textarea id="caixaCodificad">texto codificado</textarea>
+            </div>
+
+            <h4 id="caixaCoficada"></h4>
+        </form>
+
+        <script src="index.js"></script>
+    </body>
+</html>
+
