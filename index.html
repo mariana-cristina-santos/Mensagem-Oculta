@@ -9,18 +9,20 @@
     </head>
     <body>
         <form name="formulario">
-            <div class="principal">
+            
                 <h1>Aqui você pode codificar e decoficar suas mensagens!</h1>
-                <label for="digitaTexto">Digite aqui o texto que deseja codificar:</label>
 
+                <label for="qualPadrao">Digite logo abaixo o texto que deseja codificar:</label>
                 <br />
-                <textarea id="caixaTexto" placeholder="coloque o texto que deseja aqui" type="text" required="required" onekeyup="send()"></textarea>
-                <br />
+                <input type ="text" autocomplete="off" id="mensagem">
+                
+
+                <br>
 
                 <label for="qualPadrao">Em qual padrão deseja codificar? Selecione Abaixo</label>
                 <br />
 
-                <select name="select" id="selecionar">
+                <select id="selecionar">
                     <option value="valor0" id="valor0" disabled selected>Selecione Aqui!</option>
                     <option value="caesar" id="caesar">Cifra de Caesar</option>
                     <option value="base64" id="base64">Base 64</option>
@@ -28,10 +30,10 @@
                 <br />
 
                 <!-- Quando o style display está em "none" não aparece no html -->
-                <div style="display: none;" id="incremento">
+                <div style="display: none;" id="numero">
                     <p>Incremento (escolha o número da chave)</p>
 
-                    <input type="number" default="0" min="1" value="1" />
+                    <input id ="incremento" type="number" default="0" min="1" value="1" />
                 </div>
 
                 <br />
@@ -44,15 +46,20 @@
                 <label for="decodificar">DECODIFICAR</label>
                 <br />
 
-                <button type="submit">Codifica mensagem</button>
+                <button type="submit">Codificar mensagem !!!</button>
                 <br />
+                <br>
 
-                <label for="textoModificado">Veja a sua mensagem logo abaixo:</label>
+                <label for="qualPadrao">Resultado aparecerá logo abaixo:</label>
                 <br />
-                <textarea id="caixaCodificad">texto codificado</textarea>
-            </div>
+                <hr>
 
-            <h4 id="caixaCoficada"></h4>
+                <p id="resultado"></p>
+
+                <hr>
+            
+
+            
         </form>
 
         <script src="index.js"></script>
