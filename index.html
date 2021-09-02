@@ -5,24 +5,29 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="index.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet" />
         <title>Atividade - Mensagem Oculta</title>
     </head>
     <body>
         <form name="formulario">
-            
+            <header>
                 <h1>Aqui você pode codificar e decoficar suas mensagens!</h1>
+                <hr />
+            </header>
+
+            <main>
 
                 <label for="qualPadrao">Digite logo abaixo o texto que deseja codificar:</label>
                 <br />
-                <input type ="text" autocomplete="off" id="mensagem">
-                
-
-                <br>
+                <input type="text" autocomplete="off" id="texto" />
+                <br />
 
                 <label for="qualPadrao">Em qual padrão deseja codificar? Selecione Abaixo</label>
                 <br />
 
-                <select id="selecionar">
+                <select id="escolhas">
                     <option value="valor0" id="valor0" disabled selected>Selecione Aqui!</option>
                     <option value="caesar" id="caesar">Cifra de Caesar</option>
                     <option value="base64" id="base64">Base 64</option>
@@ -30,36 +35,34 @@
                 <br />
 
                 <!-- Quando o style display está em "none" não aparece no html -->
-                <div style="display: none;" id="numero">
+                <div class="incremento" style="display: none;" id="numero">
                     <p>Incremento (escolha o número da chave)</p>
-
-                    <input id ="incremento" type="number" default="0" min="1" value="1" />
+                    <input id="numeroIncremento" type="number" default="0" min="1" value="1" />
                 </div>
 
                 <br />
                 <br />
 
-                <input type="radio" name="botoes" id="codificar" value="codificar" checked="checked" />
-                <label for="codificar">CODIFICAR</label>
-                <br />
-                <input type="radio" name="botoes" id="decodificar" value="decodificar" />
-                <label for="decodificar">DECODIFICAR</label>
-                <br />
+                <div class="bttns">
+                    <input type="radio" name="botoes" id="codificar" value="codificar" checked="checked" />
+                    <label for="codificar">CODIFICAR</label>
+                    <br />
+                    <input type="radio" name="botoes" id="decodificar" value="decodificar" />
+                    <label for="decodificar">DECODIFICAR</label>
+                    <br />
 
-                <button type="submit">Codificar mensagem !!!</button>
-                <br />
-                <br>
+                    <button type="submit">Codificar mensagem !!!</button>
+                    <br />
+                    <br />
+                </div>
 
                 <label for="qualPadrao">Resultado aparecerá logo abaixo:</label>
                 <br />
-                <hr>
+                <hr />
 
-                <p id="resultado"></p>
-
-                <hr>
-            
-
-            
+                <textarea type="text" id="mensagemFinal" cols="10" rows="2"></textarea>
+            </main>
+            <hr />
         </form>
 
         <script src="index.js"></script>

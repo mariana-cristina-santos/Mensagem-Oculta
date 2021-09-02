@@ -1,19 +1,3 @@
-/* Qunado "cifra de césar" está selecionado aparece em baixo o campo que pede o incremento da cifra */
-
-var selecionar = document.querySelector("select");
-
-selecionar.addEventListener("change", function (evento) {
-    evento.preventDefault();
-
-    var chave = document.getElementById("numero");
-
-    if (evento.target.value == "caesar") {
-        chave.style = "display: block";
-    } else {
-        chave.style = "display: none";
-    }
-});
-
 /* botão muda de codificar pra decodificar e vice e versa*/
 
 var btns = document.querySelectorAll('input[name="botoes"]');
@@ -32,65 +16,74 @@ btns.forEach((radio) => {
     });
 });
 
-//*** */
-var formulario = document.forms.formulario;
+/* Qunado "cifra de césar" está selecionado aparece em baixo o campo que pede o numeroIncremento da cifra */
 
-formulario.addEventListener('submit', function (evento) {
+var escolhas = document.querySelector("select");
+
+escolhas.addEventListener("change", function (evento) {
     evento.preventDefault();
 
-    var mensagem = formulario.mensagem.value;
-    var selecionar = formulario.selecionar.value;
-    var incremento = formulario.incremento.value;
-    var radios = formulario.botoes.value;
-    var resultado = '';
+    var chave = document.getElementById("numero");
 
-    if(selecionar == 'caesar'){
-        resultado = caesar(radios, mensagem, incremento);
+    if (evento.target.value == "caesar") {
+        chave.style = "display: block";
+    } else {
+        chave.style = "display: none";
     }
-
-    else{
-        resultado = base64(radios, mensagem);
-    }
-
-    var resultadoMensagem = document.getElementById('resultado');
-    resultadoMensagem.innerHTML = `<p>A mensagem codificada é:</p> ${resultado}`;
-
-    
-
-    formulario.mensagem.focus();
 });
 
-function base64(botoes, mensagem){
-    if(botoes == 'codificar'){
-        return btoa(mensagem);
+
+var formulario = document.forms.formulario;
+
+formulario.addEventListener("submit", function (evento) {
+    evento.preventDefault();
+
+    var texto = formulario.texto.value;
+    var escolhas = formulario.escolhas.value;
+    var numeroIncremento = formulario.numeroIncremento.value;
+    var botoesRadiais = formulario.botoes.value;
+    var mensagemFinal = "";
+
+    if (escolhas == "caesar") {
+        mensagemFinal = caesar(botoesRadiais, texto, numeroIncremento);
+    } else {
+        mensagemFinal = base64(botoesRadiais, texto);
     }
 
-    else{
-        return atob(mensagem);
-    }
-}
+    var resultadoTexto = document.getElementById("mensagemFinal");
+    resultadoTexto.innerHTML = `${mensagemFinal}`;
 
-function caesar(botoes, mensagem, incremento){
-    incremento = Number(incremento);
+    formulario.texto.focus();
+});
 
-    var resultado = '';
+/*cifra de cesar*/
 
-    for(var i = 0; i < mensagem.length; i++) {
-        var letra = mensagem[i];
+function caesar(botoes, texto, numeroIncremento) {
+    numeroIncremento = Number(numeroIncremento);
+
+    var mensagemFinal = "";
+
+    for (var i = 0; i < texto.length; i++) {
+        var letra = texto[i];
         var codigo = letra.charCodeAt();
 
-        if (botoes == 'codificar') {
-            codigo += incremento;
+        if (botoes == "codificar") {
+            codigo += numeroIncremento;
+        } else {
+            codigo -= numeroIncremento;
         }
 
-        else{
-            codigo -= incremento;
-        }
-
-        resultado += String.fromCharCode(codigo);
+        mensagemFinal += String.fromCharCode(codigo);
     }
 
-    return resultado;
+    return mensagemFinal;
 }
+/*base64*/
 
-
+function base64(botoes, texto) {
+    if (botoes == "codificar") {
+        return btoa(texto);
+    } else {
+        return atob(texto);
+    }
+}
