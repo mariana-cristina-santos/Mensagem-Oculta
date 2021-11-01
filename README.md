@@ -1,13 +1,26 @@
 # Mensagem-Oculta
+
 1º Projeto do Módulo 2, do curso da Resilia que consiste em desenvolver uma aplicação capaz de codificar e decodificar mensagens utilizando a Cifra de César e a Base64.
 
 ---
 
-**Introdução:**
+## Sobre
 
 Este projeto é capaz de codificar e decodificar mensagens utilizando cifra de césar e base64. 
 
-**Funcionalidades:**
+--
+
+## 💻 Tecnologias Usadas
+
+O projeto utiliza as seguintes tecnologias:
+
+- HTML
+- CSS
+- JavaScript 
+
+--
+
+## Requisitos
 
 
 - Um campo de entrada textual, da mensagem que será codificada ou decodificada
@@ -24,12 +37,4 @@ Este projeto é capaz de codificar e decodificar mensagens utilizando cifra de c
 
 ---
 
-## 💻 Tecnologias Usadas:
 
-O projeto utiliza as seguintes tecnologias:
-
-- HTML
-- CSS
-- JavaScript (foco em manipulação de DOM)
-
----
